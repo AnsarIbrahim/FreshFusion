@@ -1,15 +1,11 @@
-import { View } from "react-native";
-import HomeScreen from "../Home/HomeScreen";
-import DetailsScreen from "../Details/DetailsScreen";
-import CartScreen from "../Cart/CartScreen";
+import { NavigationContainer } from "@react-navigation/native";
+import Navbar from "../../Components/Navigation/Navbar";
 
 const Main = () => {
   return (
-    <View>
-      <HomeScreen />
-      <DetailsScreen />
-      <CartScreen />
-    </View>
+    <NavigationContainer>
+      <Navbar />
+    </NavigationContainer>
   );
 };
 
