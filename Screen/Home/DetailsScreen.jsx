@@ -1,7 +1,13 @@
 import { Text } from "react-native";
+import ProductDetails from "../../Components/Card/ProductDetails";
 
-const DetailsScreen = () => {
-  return <Text>DetailsScreen</Text>;
+const DetailsScreen = ({ route }) => {
+  const { product } = route.params;
+  return (
+    <>
+      <ProductDetails product={product} />
+    </>
+  );
 };
 
 export default DetailsScreen;

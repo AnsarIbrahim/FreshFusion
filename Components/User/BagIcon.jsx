@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import { SimpleLineIcons } from "@expo/vector-icons";
 
-const BagIcon = ({ number, navigation }) => {
+const BagIcon = ({ number, navigation, color }) => {
   if (number > 0) {
     return (
       <TouchableOpacity
@@ -15,7 +15,7 @@ const BagIcon = ({ number, navigation }) => {
           justifyContent: "center",
         }}
       >
-        <SimpleLineIcons name="handbag" size={18} color="white" />
+        <SimpleLineIcons name="handbag" size={18} color={color} />
         <Text
           style={{
             position: "absolute",
@@ -47,7 +47,7 @@ const BagIcon = ({ number, navigation }) => {
           justifyContent: "center",
         }}
       >
-        <SimpleLineIcons name="handbag" size={18} color="white" />
+        <SimpleLineIcons name="handbag" size={18} color={color} />
       </View>
     );
   }

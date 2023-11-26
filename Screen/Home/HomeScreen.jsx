@@ -3,7 +3,7 @@ import { Text, View, FlatList, StyleSheet } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import User from "../../Components/User/User";
 import Card from "../../Components/Card/Card";
-import UserCard from "../../Components/Card/UserCard";
+import ProductCard from "../../Components/Card/ProductCard";
 import { fetchProducts } from "../../Store/Redux/Https";
 import Fonts from "../../Components/Fonts/Fonts";
 
@@ -33,7 +33,7 @@ const HomeScreen = () => {
         <FlatList
           style={styles.list}
           data={product}
-          renderItem={({ item }) => <UserCard product={item} />}
+          renderItem={({ item }) => <ProductCard product={item} />}
           keyExtractor={(item) => item.id.toString()}
           ListHeaderComponent={renderHeader}
           numColumns={numColumns}
