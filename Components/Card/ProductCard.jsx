@@ -1,10 +1,17 @@
 import React from "react";
-import { Text, Image, View } from "react-native";
+import { Text, Image, View, TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import IconHeart from "../IconButton/IconHeart";
 import IconPlus from "../IconButton/IconPlus";
 import Fonts from "../Fonts/Fonts";
 
-const UserCard = ({ product }) => {
+const ProductCard = ({ product }) => {
+  const navigation = useNavigation();
+
+  const handleIconPlusClick = () => {
+    navigation.navigate("DetailsScreen", { product });
+  };
+
   if (!product) {
     return <Text>Loading...</Text>;
   }
@@ -40,15 +47,17 @@ const UserCard = ({ product }) => {
               {product.title}
             </Text>
           </View>
-          <IconPlus
-            color="#F8F9FB"
-            backgroundColor="#2A4BA0"
-            style={{ marginTop: 10 }}
-          />
+          <TouchableOpacity onPress={handleIconPlusClick}>
+            <IconPlus
+              color="#F8F9FB"
+              backgroundColor="#2A4BA0"
+              style={{ marginTop: 10 }}
+            />
+          </TouchableOpacity>
         </View>
       </View>
     </Fonts>
   );
 };
 
-export default UserCard;
+export default ProductCard;

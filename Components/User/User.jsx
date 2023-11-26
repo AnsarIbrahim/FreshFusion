@@ -24,7 +24,7 @@ const User = ({ name, address, hour }) => {
             >
               {name}
             </Text>
-            <BagIcon number={3} navigation={navigation} />
+            <BagIcon number={3} navigation={navigation} color={"white"} />
           </View>
           <View className="bg-indigo flex items-center flex-row p-3 rounded-full px-5 mt-9">
             <Ionicons
