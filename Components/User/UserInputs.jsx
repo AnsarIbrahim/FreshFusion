@@ -55,9 +55,10 @@ const UserInputs = () => {
             <View style={styles.centeredView}>
               <View style={styles.modalView}>
                 <ScrollView>
-                  {products.map((product) => (
-                    <ModalItem key={product.id} product={product} />
-                  ))}
+                  {products &&
+                    products.map((product) => (
+                      <ModalItem key={product.id} product={product} />
+                    ))}
                 </ScrollView>
               </View>
             </View>

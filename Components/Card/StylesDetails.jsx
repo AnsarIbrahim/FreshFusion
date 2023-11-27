@@ -154,6 +154,16 @@ const styles = StyleSheet.create({
   cartBtnIncart: {
     color: "white",
   },
+  flexRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    padding: 5,
+  },
+  detailsContainer: {
+    marginTop: 2,
+    marginBottom: 5,
+  },
 });
 
 export default styles;

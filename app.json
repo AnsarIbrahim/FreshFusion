@@ -4,22 +4,20 @@
     "slug": "FreshFusion",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/favicon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/favicon.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/favicon.png",
         "backgroundColor": "#ffffff"
       },
       "package": "com.ansaribrahim.FreshFusion"
@@ -29,7 +27,7 @@
     },
     "extra": {
       "eas": {
-        "projectId": "bc04db61-431b-49f8-a8b0-5c94abc1d98c"
+        "projectId": "c53852ec-b988-462a-a6a4-29b294de51d8"
       }
     }
   }
