@@ -7,13 +7,51 @@ export const fetchProducts = createAsyncThunk("products/fetch", async () => {
   return response.data;
 });
 
-export const fetchProductDetails = createAsyncThunk(
-  "productDetails/fetch",
-  async (id) => {
-    const response = await axios.get(`${BaseURL}/${id}`);
-    return response.data;
-  }
-);
+const cartSlice = createSlice({
+  name: "cart",
+  initialState: { cart: [] },
+  reducers: {
+    addToCart: (state, action) => {
+      const index = state.cart.findIndex(
+        (item) => item.id === action.payload.id
+      );
+      if (index !== -1) {
+        if (typeof state.cart[index].quantity !== "number") {
+          state.cart[index].quantity = 1;
+        } else {
+          state.cart[index].quantity++;
+        }
+        return;
+      }
+      state.cart.push({ ...action.payload, quantity: 1 });
+    },
+    addTobuy: (state, action) => {
+      const index = state.cart.findIndex(
+        (item) => item.id === action.payload.id
+      );
+      if (index !== -1) {
+        state.cart[index].quantity = 1;
+      } else {
+        state.cart.push({ ...action.payload, quantity: 1 });
+      }
+    },
+    removeFromCart: (state, action) => {
+      state.cart = state.cart.filter((item) => item.id !== action.payload.id);
+    },
+    increaseQuantity: (state, action) => {
+      const item = state.cart.find((item) => item.id === action.payload);
+      if (item) {
+        item.quantity += 1;
+      }
+    },
+    decreaseQuantity: (state, action) => {
+      const item = state.cart.find((item) => item.id === action.payload);
+      if (item && item.quantity > 1) {
+        item.quantity -= 1;
+      }
+    },
+  },
+});
 
 const productsSlice = createSlice({
   name: "products",
@@ -26,16 +64,13 @@ const productsSlice = createSlice({
   },
 });
 
-const productDetailsSlice = createSlice({
-  name: "productDetails",
-  initialState: {},
-  reducers: {},
-  extraReducers: (builder) => {
-    builder.addCase(fetchProductDetails.fulfilled, (state, action) => {
-      return action.payload;
-    });
-  },
-});
-
 export const productsReducer = productsSlice.reducer;
-export const productDetailsReducer = productDetailsSlice.reducer;
+export const cartReducer = cartSlice.reducer;
+
+export const {
+  addToCart,
+  addTobuy,
+  removeFromCart,
+  increaseQuantity,
+  decreaseQuantity,
+} = cartSlice.actions;
