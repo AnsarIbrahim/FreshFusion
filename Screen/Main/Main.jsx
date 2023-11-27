@@ -9,12 +9,18 @@ import DetailsScreen from "../Home/DetailsScreen";
 import CartScreen from "../Home/CartScreen";
 import BagIcon from "../../Components/User/BagIcon";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import Loader from "../../Components/Loader/Loader";
 
 const Stack = createStackNavigator();
 
 const Main = () => {
   const cart = useSelector((state) => state.cart.cart);
   const totalItems = cart.reduce((sum, product) => sum + product.quantity, 0);
+  const loading = useSelector((state) => state.products.loading);
+
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
     <NavigationContainer>

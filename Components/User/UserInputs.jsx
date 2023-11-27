@@ -1,4 +1,6 @@
 import React, { useState, useRef } from "react";
+import { useSelector } from "react-redux";
+import { useNavigation } from "@react-navigation/native";
 import {
   TextInput,
   View,
@@ -7,22 +9,26 @@ import {
   Modal,
   StyleSheet,
   TouchableWithoutFeedback,
+  ScrollView,
 } from "react-native";
 import Fonts from "../Fonts/Fonts";
 
 const UserInputs = () => {
   const [isFocused, setIsFocused] = useState(false);
   const inputRef = useRef();
+  const navigation = useNavigation();
+  const products = useSelector((state) => state.products.products.products);
 
-  const handlePress = () => {
+  const handlePress = (product) => {
     setIsFocused(false);
     inputRef.current.blur();
+    navigation.navigate("DetailsScreen", { product });
   };
 
-  const ModalItem = ({ item }) => {
+  const ModalItem = ({ product }) => {
     return (
-      <TouchableOpacity onPress={() => handlePress(item)}>
-        <Text style={styles.modalText}>{item}</Text>
+      <TouchableOpacity onPress={() => handlePress(product)}>
+        <Text style={styles.modalText}>{product.title}</Text>
       </TouchableOpacity>
     );
   };
@@ -48,23 +54,11 @@ const UserInputs = () => {
           <TouchableWithoutFeedback onPress={() => setIsFocused(false)}>
             <View style={styles.centeredView}>
               <View style={styles.modalView}>
-                <ModalItem item="All" />
-                <ModalItem item="Grocery" />
-                <ModalItem item="Fruits" />
-                <ModalItem item="Vegetables" />
-                <ModalItem item="Bakery" />
-                <ModalItem item="Dairy" />
-                <ModalItem item="Meat" />
-                <ModalItem item="Seafood" />
-                <ModalItem item="Snacks" />
-                <ModalItem item="Beverages" />
-                <ModalItem item="Alcohol" />
-                <ModalItem item="Pet" />
-                <ModalItem item="Baby" />
-                <ModalItem item="Pharmacy" />
-                <ModalItem item="Household" />
-                <ModalItem item="Office" />
-                <ModalItem item="Other" />
+                <ScrollView>
+                  {products.map((product) => (
+                    <ModalItem key={product.id} product={product} />
+                  ))}
+                </ScrollView>
               </View>
             </View>
           </TouchableWithoutFeedback>

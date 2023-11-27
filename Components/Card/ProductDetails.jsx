@@ -14,6 +14,7 @@ import { addToCart, addTobuy } from "../../Store/Redux/Https";
 import Fonts from "../Fonts/Fonts";
 import styles from "./StylesDetails";
 import { useNavigation } from "@react-navigation/native";
+import Loader from "../Loader/Loader";
 
 const ProductDetails = ({ product }) => {
   const cart = useSelector((state) => state.cart.cart);
@@ -21,12 +22,17 @@ const ProductDetails = ({ product }) => {
   const dispatch = useDispatch();
   const navigation = useNavigation();
   const [currentImage, setCurrentImage] = useState(0);
+  const loading = useSelector((state) => state.products.loading);
 
   const handleScroll = (event) => {
     const { layoutMeasurement, contentOffset } = event.nativeEvent;
     const currentIndex = Math.floor(contentOffset.x / layoutMeasurement.width);
     setCurrentImage(currentIndex);
   };
+
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
     <Fonts>

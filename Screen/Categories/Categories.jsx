@@ -2,15 +2,21 @@ import { useSelector } from "react-redux";
 import { Text, View, StyleSheet, FlatList, SafeAreaView } from "react-native";
 import User from "../../Components/User/User";
 import Card from "../../Components/Card/Card";
+import Loader from "../../Components/Loader/Loader";
 
 const Categories = () => {
   const products = useSelector((state) => state.products.products.products);
+  const loading = useSelector((state) => state.products.loading);
 
   let uniqueCategories = [];
   if (products) {
     uniqueCategories = [
       ...new Set(products.map((product) => product.category)),
     ];
+  }
+
+  if (loading) {
+    return <Loader />;
   }
 
   const renderItem = ({ item }) => (
@@ -24,7 +30,11 @@ const Categories = () => {
       <FlatList
         ListHeaderComponent={
           <>
-            <User name="Hey, Rahul" address="Green Way 3000, Sylhet" hour={2} />
+            <User
+              name="Hey, Ansar"
+              address="Coimbatore, Tamilnadu, India"
+              hour={2}
+            />
             <Card />
           </>
         }

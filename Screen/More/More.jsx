@@ -5,7 +5,7 @@ import Card from "../../Components/Card/Card";
 const More = () => {
   return (
     <View style={styles.container}>
-      <User name="Hey, Rahul" address="Green Way 3000, Sylhet" hour={2} />
+      <User name="Hey, Ansar" address="Coimbatore, Tamilnadu, India" hour={2} />
       <Card />
       <View style={styles.textContainer}>
         <Text style={styles.text}>ComingSoon</Text>
