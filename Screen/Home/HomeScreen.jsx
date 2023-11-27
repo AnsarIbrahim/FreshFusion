@@ -6,10 +6,12 @@ import Card from "../../Components/Card/Card";
 import ProductCard from "../../Components/Card/ProductCard";
 import { fetchProducts } from "../../Store/Redux/Https";
 import Fonts from "../../Components/Fonts/Fonts";
+import Loader from "../../Components/Loader/Loader";
 
 const HomeScreen = () => {
   const dispatch = useDispatch();
   const product = useSelector((state) => state.products.products.products);
+  const loading = useSelector((state) => state.products.loading);
 
   useEffect(() => {
     dispatch(fetchProducts());
@@ -26,10 +28,18 @@ const HomeScreen = () => {
 
   const numColumns = 2;
 
+  if (loading) {
+    return <Loader />;
+  }
+
   return (
     <Fonts>
       <View style={styles.container}>
-        <User name="Hey, Rahul" address="Green Way 3000, Sylhet" hour={2} />
+        <User
+          name="Hey, Ansar"
+          address="Coimbatore, Tamilnadu, India"
+          hour={2}
+        />
         <FlatList
           style={styles.list}
           data={product}

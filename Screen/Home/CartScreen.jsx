@@ -15,16 +15,22 @@ import {
   removeFromCart,
 } from "../../Store/Redux/Https";
 import Fonts from "../../Components/Fonts/Fonts";
+import Loader from "../../Components/Loader/Loader";
 
 const CartScreen = () => {
   const [isEditMode, setIsEditMode] = useState(false);
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart.cart);
+  const loading = useSelector((state) => state.cart.loading);
 
   const total = cart.reduce(
     (sum, product) => sum + product.price * product.quantity,
     0
   );
+
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
     <Fonts>
