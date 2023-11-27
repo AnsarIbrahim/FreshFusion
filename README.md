@@ -67,8 +67,8 @@ Fresh Fusion, your ultimate grocery companion. Crafted using React Native, Redux
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link]()
-- [APK File]()
+- [Live Demo Link](https://freshfusion.netlify.app/)
+- [APK File](https://drive.google.com/file/d/1xmp0s6YMbtYxBtnYEEgI0Iihkqv3F_G_/view?usp=sharing)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
