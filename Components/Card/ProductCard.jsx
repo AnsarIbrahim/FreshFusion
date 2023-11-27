@@ -20,7 +20,7 @@ const ProductCard = ({ product }) => {
     <Fonts>
       <View className="bg-white50 rounded-xl justify-center w-[50%]">
         <View>
-          <IconHeart />
+          <IconHeart product={product} />
         </View>
         <View className="flex items-center justify-center">
           <Image
