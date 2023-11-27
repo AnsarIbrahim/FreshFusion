@@ -1,4 +1,5 @@
 import { Text, View } from "react-native";
+import { useSelector } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
 import { Ionicons, Entypo } from "@expo/vector-icons";
 import UserInputs from "./UserInputs";
@@ -7,6 +8,8 @@ import Fonts from "../Fonts/Fonts";
 
 const User = ({ name, address, hour }) => {
   const navigation = useNavigation();
+  const cart = useSelector((state) => state.cart.cart);
+  const totalItems = cart.reduce((sum, product) => sum + product.quantity, 0);
   return (
     <Fonts>
       <View className="flex bg-blue w-full">
@@ -24,7 +27,11 @@ const User = ({ name, address, hour }) => {
             >
               {name}
             </Text>
-            <BagIcon number={3} navigation={navigation} color={"white"} />
+            <BagIcon
+              number={totalItems}
+              navigation={navigation}
+              color={"white"}
+            />
           </View>
           <View className="bg-indigo flex items-center flex-row p-3 rounded-full px-5 mt-9">
             <Ionicons
