@@ -82,7 +82,7 @@ const ProductDetails = ({ product }) => {
               <IconHeart product={product} />
             </TouchableOpacity>
           </View>
-          <View className="flex flex-row items-center gap-5 py-5">
+          <View style={styles.flexRow}>
             <Text style={styles.price}>${product.price}</Text>
             <Text style={styles.discount}>
               ${product.discountPercentage} OFF%
@@ -114,7 +114,7 @@ const ProductDetails = ({ product }) => {
               <Text style={styles.buyBtnInner}>Buy Now</Text>
             </TouchableOpacity>
           </View>
-          <View className="mt-2 mb-5">
+          <View style={styles.detailsContainer}>
             <Text style={styles.details}>Details</Text>
             <Text style={styles.description}>{product.description}</Text>
           </View>

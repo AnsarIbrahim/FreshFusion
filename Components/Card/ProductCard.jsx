@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, Image, View, TouchableOpacity } from "react-native";
+import { Text, Image, View, TouchableOpacity, StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import IconHeart from "../IconButton/IconHeart";
 import IconPlus from "../IconButton/IconPlus";
@@ -18,34 +18,21 @@ const ProductCard = ({ product }) => {
 
   return (
     <Fonts>
-      <View className="bg-white50 rounded-xl justify-center w-[50%]">
+      <View style={styles.container}>
         <View>
           <IconHeart product={product} />
         </View>
-        <View className="flex items-center justify-center">
+        <View style={styles.imageContainer}>
           <Image
             source={{ uri: product.thumbnail }}
             style={{ width: 100, height: 100, borderRadius: 8 }}
             onError={(error) => console.log("Error loading image:", error)}
           />
         </View>
-        <View className="flex flex-row items-center justify-around mt-5 mb-5 p-2">
+        <View style={styles.detailsContainer}>
           <View>
-            <Text
-              className="text-base font-semibold leading-5"
-              style={{ fontFamily: "ManropesemiBold" }}
-            >
-              ${product.price}
-            </Text>
-            <Text
-              className="text-sm font-normal leading-4"
-              style={{
-                fontFamily: "ManropeRegular",
-                color: "#606D76",
-              }}
-            >
-              {product.title}
-            </Text>
+            <Text style={styles.priceText}>${product.price}</Text>
+            <Text style={styles.titleText}>{product.title}</Text>
           </View>
           <TouchableOpacity onPress={handleIconPlusClick}>
             <IconPlus
@@ -61,3 +48,38 @@ const ProductCard = ({ product }) => {
 };
 
 export default ProductCard;
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "white",
+    borderRadius: 10,
+    justifyContent: "center",
+    width: "50%",
+  },
+  imageContainer: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  detailsContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginTop: 5,
+    marginBottom: 5,
+    padding: 2,
+  },
+  priceText: {
+    fontSize: 16,
+    fontWeight: "600",
+    lineHeight: 20,
+    fontFamily: "ManropesemiBold",
+  },
+  titleText: {
+    fontSize: 14,
+    fontWeight: "400",
+    lineHeight: 16,
+    fontFamily: "ManropeRegular",
+    color: "#606D76",
+  },
+});
