@@ -73,7 +73,7 @@ const ProductDetails = ({ product }) => {
               ))}
             </View>
             <TouchableOpacity style={styles.iconHeart}>
-              <IconHeart />
+              <IconHeart product={product} />
             </TouchableOpacity>
           </View>
           <View className="flex flex-row items-center gap-5 py-5">

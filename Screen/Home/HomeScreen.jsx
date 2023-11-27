@@ -38,7 +38,6 @@ const HomeScreen = () => {
           ListHeaderComponent={renderHeader}
           numColumns={numColumns}
           columnWrapperStyle={styles.columnWrapper}
-          key={numColumns}
         />
       </View>
     </Fonts>
@@ -61,7 +60,6 @@ const styles = StyleSheet.create({
     fontFamily: "ManropeRegular",
   },
   columnWrapper: {
-    flex: 1,
     gap: 10,
     padding: 10,
   },

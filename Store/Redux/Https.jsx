@@ -7,6 +7,17 @@ export const fetchProducts = createAsyncThunk("products/fetch", async () => {
   return response.data;
 });
 
+const productsSlice = createSlice({
+  name: "products",
+  initialState: { products: [] },
+  reducers: {},
+  extraReducers: (builder) => {
+    builder.addCase(fetchProducts.fulfilled, (state, action) => {
+      state.products = action.payload;
+    });
+  },
+});
+
 const cartSlice = createSlice({
   name: "cart",
   initialState: { cart: [] },
@@ -53,19 +64,32 @@ const cartSlice = createSlice({
   },
 });
 
-const productsSlice = createSlice({
-  name: "products",
-  initialState: { products: [] },
-  reducers: {},
-  extraReducers: (builder) => {
-    builder.addCase(fetchProducts.fulfilled, (state, action) => {
-      state.products = action.payload;
-    });
+const favoriteSlice = createSlice({
+  name: "favorite",
+  initialState: {
+    products: [],
+  },
+  reducers: {
+    add: (state, action) => {
+      const isAlreadyFavorite = state.products.some(
+        (product) => product.id === action.payload.id
+      );
+
+      if (!isAlreadyFavorite) {
+        state.products.push(action.payload);
+      }
+    },
+    remove: (state, action) => {
+      state.products = state.products.filter(
+        (product) => product.id !== action.payload.id
+      );
+    },
   },
 });
 
 export const productsReducer = productsSlice.reducer;
 export const cartReducer = cartSlice.reducer;
+export const favoriteReducer = favoriteSlice.reducer;
 
 export const {
   addToCart,
@@ -74,3 +98,4 @@ export const {
   increaseQuantity,
   decreaseQuantity,
 } = cartSlice.actions;
+export const { add, remove } = favoriteSlice.actions;
