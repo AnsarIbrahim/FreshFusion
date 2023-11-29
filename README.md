@@ -68,7 +68,7 @@ Fresh Fusion, your ultimate grocery companion. Crafted using React Native, Redux
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 - [Live Demo Link](https://freshfusion.netlify.app/)
-- [APK File](https://drive.google.com/file/d/1xmp0s6YMbtYxBtnYEEgI0Iihkqv3F_G_/view?usp=sharing)
+- [APK File]()
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -101,7 +101,7 @@ cd `SpendWise`
 Install expo:
 
 ```
-expo init .
+expo init.
 ```
 
 ### Usage
@@ -120,7 +120,7 @@ yarn expo export:web
 
 ### Deployment <a name="deployment"></a>
 
-You can deploy this project using: Netlify Platform
+You can deploy this project using: the Netlify Platform
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 <!-- AUTHORS -->
@@ -167,7 +167,7 @@ If you like this project give it a ⭐️
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to acknowledge and give credit to [Plena Finance](https://www.plena.finance/)
+I would like to acknowledge and give credit to [Plena Finance]()
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
