@@ -167,7 +167,7 @@ If you like this project give it a ⭐️
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to acknowledge and give credit to [Plena Finance]()
+I would like to acknowledge and give credit to Ansar Ibrahim
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
